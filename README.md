@@ -1,6 +1,6 @@
 # sqlx_sqlite
 
-Prerequsite
+## Prerequsite
 
 Create a empty sqlite database in the current directory by running sqlite
 
