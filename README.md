@@ -2,6 +2,6 @@
 
 Prerequsite
 
-Create a local db by running sqlite
+Create a empty sqlite database in the current directory by running sqlite
 
 sqlite3 test.db "VACUUM;"

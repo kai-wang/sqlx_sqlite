@@ -28,9 +28,9 @@ async fn main() -> Result<(), sqlx::Error> {
 
   // insert some new data
   let row: (i64, ) = sqlx::query_as("insert into contacts (name) values ($1) returning contact_id")
-  .bind("JamesBond")
-  .fetch_one(&pool)
-  .await?;
+      .bind("JamesBond")
+      .fetch_one(&pool)
+      .await?;
 
   // Query 1 - fetch all records;
   let rows = sqlx::query("SELECT * FROM contacts")
@@ -48,12 +48,12 @@ async fn main() -> Result<(), sqlx::Error> {
   // Query 2 - select query with map()
   let query = sqlx::query("SELECT contact_id, name FROM contacts");
   let contacts: Vec<Contact> = query
-        .map(|row: SqliteRow| Contact {
+      .map(|row: SqliteRow| Contact {
           contact_id: row.get("contact_id"),
           name: row.get("name")
-        })
-        .fetch_all(&pool)
-        .await?;
+      })
+      .fetch_all(&pool)
+      .await?;
 
   println!("\n select contacts from query.map...\n{:?}", contacts);
 
